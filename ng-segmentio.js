@@ -64,16 +64,16 @@ window.angular.module('segmentio', ['ng']).factory(
       $window.analytics.SNIPPET_VERSION = '3.0.1'
 
       // Listening to $viewContentLoaded event to track pageview
-      $rootScope.$on('$stateChangeSuccess', function(event, toState) {
-        $timeout(function() {
+      $rootScope.$on('$stateChangeSuccess', function (event, toState) {
+        $timeout(function () {
           var name = document.title,
-          properties = {
-            path: $location.path(),
-            title: name
-          };
-          service.page(name, properties);
-        }, 200);
-      });
+            properties = {
+              path: $location.path(),
+              title: name
+          }
+          service.page(name, properties)
+        }, 200)
+      })
 
       return service
     }])
